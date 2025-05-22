@@ -1,45 +1,20 @@
-# variaveis
-total_livros_emprestados = ""
-media_diaria = ""
-maior = ""
+total_emprestimos = 0
+maior_emprestimo = 0
+dia_maior_emprestimo = 0
 
-# perguntas
-segunda = int(input("Quantos livros foram emprestados na segunda-feira ? "))
-terca = int(input("Quantos livros foram emprestados na terça-feira ?"))
-quarta = int(input("Quantos livros foram emprestados na quarta-feira ?"))
-quinta = int(input("Quantos livros foram emprestados na quinta-feira ?"))
-sexta = int(input("Quantos livros foram emprestados na sexta-feira ?"))
-sabado = int(input("Quantos livros foram emprestados no sabado ? "))
-domingo = int(input("Quantos livros foram emprestados no domingo ? "))
+for dia in range(1, 8):
+    emprestimo = int(input(f"Digite o número de empréstimos do dia {dia}: "))
+    total_emprestimos += emprestimo
+    
+    if emprestimo > maior_emprestimo:
+        maior_emprestimo = emprestimo
+        dia_maior_emprestimo = dia
 
-# calculos de livros emprestados
+quantidade_dias = 7
+media_diaria = round((total_emprestimos / quantidade_dias))
 
-total_livros_emprestados = (segunda) + (terca) + (quarta) + (quinta) + (sexta) + (sabado) + (domingo)
-
-media_diaria = total_livros_emprestados / 7
-
-if segunda > terca and quarta and quinta and sexta and sabado and domingo:
-    maior = "segunda"
-
-elif terca > quarta and quinta and sexta and sabado and domingo:
-    maior = "terca"
-
-elif quarta > quinta and sexta and sabado and domingo:
-    maior = "quarta"
-
-elif quinta > sexta and sabado and domingo:
-    maior = "quinta"
-
-elif sexta > sabado and domingo:
-    maior = "sexta"
-
-elif sabado > domingo:
-    maior = "sabado"
-
-else:
-    maior = "domingo"
-
-print(f"O número total de livros emprestados na semana é:{total_livros_emprestados}")
-print(f"A média diária de empréstimos é:{media_diaria}")
-print(f"O dia com o maior número de empréstimos é:{maior}")
-
+print(20*'-')
+print(f"Total de empréstimos na semana: {total_emprestimos}")
+print(f"Média diária de empréstimos: {media_diaria:.2f}")
+print(f"Dia com maior número de empréstimos: {dia_maior_emprestimo}")
+print(20*'-')
